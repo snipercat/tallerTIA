@@ -1,24 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>504</width>
+    <height>392</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="loadImage">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>111</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cargar Imagen</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>471</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Umbralización</string>
+     </attribute>
+     <widget class="QComboBox" name="thresholdType">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>161</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>BINARY</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>BINARY-INV</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TRUNC</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TOZERO-INV</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TOZERO</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QCheckBox" name="thresholdBW">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>50</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Blanco y Negro</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="thresholdValueLabel">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>20</y>
+        <width>50</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Umbral</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="thresholdValue">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>20</y>
+        <width>61</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>256</number>
+      </property>
+      <property name="value">
+       <number>100</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="thresholdMaxValueLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Max Value</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="thresholdMaxValue">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>40</y>
+        <width>61</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>256</number>
+      </property>
+      <property name="value">
+       <number>256</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="umbralizar">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>50</y>
+        <width>121</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Umbralizar</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>80</y>
+        <width>261</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="umbralAutomatico">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>110</y>
+        <width>151</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Umbral Automático</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="automaticThresholdType">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>110</y>
+        <width>101</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Mean C</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Gaussian C</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Contornos</string>
+     </attribute>
+     <widget class="QComboBox" name="contourThresholdType">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>10</y>
+        <width>171</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Normal</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Automática</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="contourThresholdTypeLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Umbralización</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="retrievalMode">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>50</y>
+        <width>171</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>EXTERNAL</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>LIST</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CCOMP</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TREE</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="retrievalModeLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Retrieval Mode</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="approxMethod">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>80</y>
+        <width>171</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>CODE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>APPROX_NONE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>APPROX_SIMPLE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>APPROX_TC89_L1</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="approxMethodLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>111</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Approx Method</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="offsetLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>offset</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="offsetX">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>120</y>
+        <width>48</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="offsetY">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>120</y>
+        <width>48</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="findContours">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>99</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Contornos</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Experimentos</string>
+     </attribute>
+     <widget class="QPushButton" name="experiment1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>121</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Realiza una Umbralización de RGB a Gris, conviertiendo la imagen a Blanco y negro y luego umbralizando o umbralizando primero y luego convirtiendo a Blanco y negro. Los valores usados son los definidos en la pestaña &amp;quot;Umbralización&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>Experimento 1</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>504</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>
